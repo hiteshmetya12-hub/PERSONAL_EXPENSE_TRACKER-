@@ -8,7 +8,6 @@ export function formatCurrency(amount) {
 
 export function formatDate(dateString) {
     const date = new Date(dateString);
-
     return date.toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
@@ -28,10 +27,10 @@ export function getExpensesByCategory(expenses) {
     };
 
     expenses.forEach((expense) => {
-        const cateogry = expense.cateogry ? expense.category.toLowerCase() : "other";
+        const category = expense.category ? expense.category.toLowerCase() : "other";
 
-        if (categories[cateogry] !== undefined) {
-            categories[cateogry] += Number(expense.amount);
+        if (categories[category] !== undefined) {
+            categories[category] += Number(expense.amount);
         } else {
             categories["other"] += Number(expense.amount);
         }
@@ -57,12 +56,12 @@ export function getChartData(expenses) {
 
 export function getCategoryTextColor(category) {
     const colors = {
-        food: "text-indigo-500",
-        transport: "text-cayn-500",
-        entertainment: "text-purple-500",
-        shopping: "text-orange-500",
-        utilities: "text-teal-500",
-        other: "text-slate-500",
+        food: "text-cayn-500",
+        transport: "text-indigo-500",
+        entertainment: "text-orange-500",
+        shopping: "text-purple-500",
+        utilities: "text-slate-500",
+        other: "text-teal-500",
         health: "text-green-500",
     };
 

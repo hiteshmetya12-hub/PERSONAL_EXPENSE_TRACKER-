@@ -4,7 +4,8 @@ import Layout from "./layout/Layout";
 import Analytics from "./pages/Analytics";
 import NotFoundPage from "./pages/NotFoundPage";
 import ExpensesHistory from "./sections/ExpensesHistory";
-import { ExpenseProvider } from "./context/Context";
+import { ExpensesProvider } from "./context/Context";
+import { Toaster } from "react-hot-toast";
 
 function App() {
     // useEffect(() => {
@@ -24,7 +25,8 @@ function App() {
 
     return (
         <BrowserRouter>
-            <ExpenseProvider>
+            <Toaster position="top-center" />
+            <ExpensesProvider>
                 <Routes>
                     <Route element={<Layout />}>
                         <Route path="/" element={<Analytics />} />
@@ -32,7 +34,7 @@ function App() {
                     </Route>
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
-            </ExpenseProvider>
+            </ExpensesProvider>
         </BrowserRouter>
     );
 }
